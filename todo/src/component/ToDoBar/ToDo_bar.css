@@ -91,6 +91,32 @@ input::placeholder {
   border-color: black;
   box-sizing: border-box;
   width: 100%;
-  border: 1px solid grey;
-  padding: 15px 15px 15px 60px;
+  border: 1px solid lightgrey;
+  padding-top:15px;
+  padding-bottom: 15px;}
+
+
+.delete-button{
+  
+	top: 0;
+	right: 10px;
+	bottom: 0;
+	width: 20px;
+	height: 20px;
+	padding-left: 50px;
+	font-size: 15px;
+	color: #cc9a9a;
+	margin-bottom: 11px;
+}
+
+.update-button{
+  
+	top: 0;
+	right: 10px;
+	bottom: 0;
+	width: 20px;
+	height: 20px;
+	padding-right: 80px;
+	font-size: 15px;
+	color: #cc9a9a;
 }

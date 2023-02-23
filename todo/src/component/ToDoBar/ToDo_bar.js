@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import './ToDo_bar.css'
-// import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 
 const ToDo_bar = () => {
     const [newItem, setNewItem] = useState("");
@@ -64,7 +64,7 @@ const ToDo_bar = () => {
         <div className="main_todo"style={{textAlign: 'center'}}>
             <h1 className = 'title'>todos</h1>
             <div class = 'search-bar'>
-            <label className='Toggle-all'>{false ? '❯' : ''}</label>
+            <label className='Toggle-all'>{items.length ? '❯' : ''}</label>
             <input
                 className='search-bar-input'
                 type="text"
@@ -88,11 +88,10 @@ const ToDo_bar = () => {
                                     {item.status ? 'Finish' : 'Unfinish'}
                                 </label>
                                 {item.value}
-                                <div className='btn-grp'style ={{marginLeft:'20px', marginLeft:'20px',display:'inline-block'}}>
+                                <div className='btn-grp'style ={{display:'inline-block'}}>
                                 <label
                                     className="delete-button"
                                     onClick={() => deleteItem(item.id)}
-                                    style ={{marginLeft:'10%'}}
                                 >
                                     X
                                 </label>
