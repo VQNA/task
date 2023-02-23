@@ -1,0 +1,36 @@
+.main_todo {
+    margin: auto;
+    margin-top: 40px;
+    text-align: 'center';
+    width: 50%;
+    padding: 10px;
+  }
+
+.info{
+    color: grey;
+    text-align:center
+}
+
+li{
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.title {
+    color:brown;
+    
+}
+
+input{
+    color:black;
+    
+    width: 100%;
+    padding: 16px 16px 16px 60px;
+    margin: 10px;
+    box-sizing: border-box;
+  }
+
+  input::placeholder {
+    color: lightslategray;
+    font-style: italic;
+  }
