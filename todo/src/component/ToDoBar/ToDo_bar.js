@@ -59,6 +59,7 @@ const ToDo_bar = () => {
                 placeholder="What needs to be done?"
                 value={newItem}
                 onChange={(e) => setNewItem(e.target.value)}
+                
             />
 
             <button onClick={() => addItem()}>Add</button>
@@ -69,21 +70,23 @@ const ToDo_bar = () => {
                         <div className={item.status ? 'ongoing' : 'done'}>
                             <li key={item.id}>
                                 {item.value}
+                                <div className='btn grp'style ={{margin:'20px', display:'inline'}}>
                                 <button
                                     className="delete-button"
                                     onClick={() => deleteItem(item.id)}
-                                    style ={{margin:'20px'}}
+                                    style ={{margin:'10px'}}
                                 >
                                     Delete
                                 </button>
                                 <button
                                     className="update-button"
                                     onClick={() => changeState(item.id)}
-                                    style ={{margin:'20px'}}
+                                    
 
                                 >
                                     {item.status ? 'Finish' : 'Unfinish'}
                                 </button>
+                                </div>
                             </li>
 
 

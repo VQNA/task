@@ -34,3 +34,20 @@ input{
     color: lightslategray;
     font-style: italic;
   }
+
+.done {
+  text-decoration: line-through;
+}
+
+.info{
+  font-size:12px;
+}
+
+.info a{
+  text-decoration: none;
+
+}
+
+.info a:hover{
+  text-decoration: underline;
+}
