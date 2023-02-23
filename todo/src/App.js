@@ -1,6 +1,6 @@
 import './App.css';
-import ToDo_bar from './features/ToDo_bar';
-import SideContent from './features/sidebar/side_content';
+import SideContent from './component/sidebar/side_content';
+import ToDo_bar from './component/ToDoBar/ToDo_bar';
 function App() {
   return (
     <div className="Learn-bar"> 
