@@ -1,53 +1,96 @@
 .main_todo {
-    margin: auto;
-    margin-top: 40px;
-    text-align: 'center';
-    width: 50%;
-    padding: 10px;
-  }
-
-.info{
-    color: grey;
-    text-align:center
+  margin: auto;
+  margin-top: 40px;
+  text-align: "center";
+  width: 50%;
+  padding: 10px;
 }
 
-li{
-    list-style-type: none;
-    margin-bottom: 10px;
+.info {
+  color: grey;
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+  margin-bottom: 10px;
 }
 
 .title {
-    color:brown;
-    
+  color: #af2f2f26;
+  font-size: 100px;
+  font-weight: normal;
+  margin-bottom: 0px;
 }
 
-input{
-    color:black;
-    
-    width: 100%;
-    padding: 16px 16px 16px 60px;
-    margin: 10px;
-    box-sizing: border-box;
-  }
+.search-bar {
+  padding: 16px;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  margin-left: 40px;
+  box-sizing: border-box;
+  background-color: white;
+}
 
-  input::placeholder {
-    color: lightslategray;
-    font-style: italic;
-  }
+input {
+  color: black;
+  width: 100%;
+  padding: 16px 16px 16px 60px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  margin-left: 10px;
+  box-sizing: border-box;
+  border-style: none;
+}
+input:focus {
+  outline: none;
+}
+.Toggle-all {
+  position: absolute;
+  transform: rotate(90deg);
+  display: inline;
+  font-size: 20px;
+  color: black;
+  background-color: white;
+  padding: 16px;
+  height: 16px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+input::placeholder {
+  color: lightslategray;
+  font-style: italic;
+}
 
 .done {
   text-decoration: line-through;
+  color: lightslategray;
 }
 
-.info{
-  font-size:12px;
+.info {
+  font-size: 12px;
+  margin-top: 70px;
 }
 
-.info a{
+.info a {
   text-decoration: none;
-
 }
 
-.info a:hover{
+.info a:hover {
   text-decoration: underline;
+}
+
+.task_list {
+  background-color: white;
+  border-color: black;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid grey;
+  padding: 15px 15px 15px 60px;
 }

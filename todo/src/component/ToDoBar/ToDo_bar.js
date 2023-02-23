@@ -1,13 +1,15 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import './ToDo_bar.css'
+// import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+
 const ToDo_bar = () => {
     const [newItem, setNewItem] = useState("");
     const [items, setItems] = useState([]);
-
+    const test = items.length
     function addItem() {
         if (!newItem) {
-            alert("Press enter an item.");
+            alert("Please enter an item.");
             return;
         }
 
@@ -18,8 +20,9 @@ const ToDo_bar = () => {
         };
 
         setItems((oldList) => [...oldList, item]);
-
+        
         setNewItem("");
+        console.log(test)
     }
 
     function deleteItem(id) {
@@ -37,6 +40,8 @@ const ToDo_bar = () => {
         setItems(ChangeTask);
     }
 
+
+    
     useEffect(() => {
         const LSitems = JSON.parse(localStorage.getItem('items'));
         if (LSitems) {
@@ -48,44 +53,50 @@ const ToDo_bar = () => {
         localStorage.setItem('items', JSON.stringify(items));
     }, [items]);
 
-
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            addItem();
+        }
+      };
 
 
     return (
         <div className="main_todo"style={{textAlign: 'center'}}>
             <h1 className = 'title'>todos</h1>
+            <div class = 'search-bar'>
+            <label className='Toggle-all'>{false ? '❯' : ''}</label>
             <input
+                className='search-bar-input'
                 type="text"
                 placeholder="What needs to be done?"
                 value={newItem}
                 onChange={(e) => setNewItem(e.target.value)}
-                
+                onKeyDown={handleKeyDown}
             />
-
-            <button onClick={() => addItem()}>Add</button>
-            
+           
+            </div>
             <ul>
                 {items.map((item) => {
                     return (
-                        <div className={item.status ? 'ongoing' : 'done'}>
-                            <li key={item.id}>
-                                {item.value}
-                                <div className='btn grp'style ={{margin:'20px', display:'inline'}}>
-                                <button
-                                    className="delete-button"
-                                    onClick={() => deleteItem(item.id)}
-                                    style ={{margin:'10px'}}
-                                >
-                                    Delete
-                                </button>
-                                <button
+                        <div className='task_list'> 
+                            <li key={item.id}  className={item.status ? 'ongoing' : 'done'}>
+                            <label
                                     className="update-button"
                                     onClick={() => changeState(item.id)}
-                                    
-
+                                    style ={{marginRight:'20px'}}
                                 >
                                     {item.status ? 'Finish' : 'Unfinish'}
-                                </button>
+                                </label>
+                                {item.value}
+                                <div className='btn-grp'style ={{marginLeft:'20px', marginLeft:'20px',display:'inline-block'}}>
+                                <label
+                                    className="delete-button"
+                                    onClick={() => deleteItem(item.id)}
+                                    style ={{marginLeft:'10%'}}
+                                >
+                                    X
+                                </label>
+                                
                                 </div>
                             </li>
 
@@ -99,7 +110,7 @@ const ToDo_bar = () => {
             <footer className='info'>
                 <ul>
                     <li>Double-click to edit a todo</li>
-                    <li>Created by <a href='https://github.com/petehunt/'target="_blank" rel="noopener noreferrer"style={{display: 'inline', color:'grey'}}>Hannes Johansson</a> based on React example by<a href='https://github.com/petehunt/'target="_blank" rel="noopener noreferrer"style={{display: 'inline', color:'grey'}}>petehunt</a></li>
+                    <li>Created by <a href='https://github.com/petehunt/'target="_blank" rel="noopener noreferrer"style={{display: 'inline', color:'grey'}}>petehunt</a></li>
                     <li>Part of <a href='https://todomvc.com/'target="_blank" rel="noopener noreferrer"style={{display: 'inline', color:'grey'}}>TodoMVC</a></li>
                 </ul>
             </footer>

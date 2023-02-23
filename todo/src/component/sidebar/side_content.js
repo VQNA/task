@@ -28,8 +28,9 @@ const SideContent = () => {
         <hr></hr>
 
         <div className='Quote'>
-        <blockquote class='quote speech-bubble'>React is a JavaScript library for creating user interfaces. Its core principles are declarative code, efficiency, and flexibility. Simply specify what your component looks like and React will keep it up-to-date when the underlying data changes</blockquote>
-        <a href={'https://reactjs.org/'} style={{color:'#B83F45', paddingLeft:'80%'}}>React</a>
+        <blockquote class='quote_content'><p>React is a JavaScript library for creating user interfaces. Its core principles are declarative code, efficiency, and flexibility. Simply specify what your component looks like and React will keep it up-to-date when the underlying data changes</p></blockquote>
+        
+        <a href={'https://reactjs.org/'} style={{color:'#B83F45', paddingLeft:'75%'}}>React</a>
         </div>
         
         <hr></hr>
@@ -54,7 +55,7 @@ const SideContent = () => {
         <hr></hr>
 
 
-        <div className='footer'>
+        <div className='footer' style={{fontStyle: 'italic'}}>
             <p>If you have other helpful links to share, or find any of the links above no longer work, <a href="https://github.com/tastejs/todomvc/issues"target="_blank" rel="noopener noreferrer" style={{color:'#B83F45'}}>please let us know.</a></p>
         </div>
         
