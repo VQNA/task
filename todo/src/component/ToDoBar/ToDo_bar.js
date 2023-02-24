@@ -164,7 +164,7 @@ const ToDo_bar = () => {
                                 ?
                                 (<input type='text' onChange={(e) => setEditingText(e.target.value)} onKeyDown = {handleKeyDownEdit}/>) 
                                 : 
-                                (<div className={item.status ? 'ongoing' : 'done'} onClick={() => setEditing(item.id)}>{item.value}</div>)}
+                                (<div className={item.status ? 'ongoing' : 'done'} onDoubleClick={() => setEditing(item.id)}>{item.value}</div>)}
                                 
 
 
