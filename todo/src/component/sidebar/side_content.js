@@ -28,7 +28,8 @@ const SideContent = () => {
         <hr></hr>
 
         <div className='Quote'>
-        <blockquote className='quote_content'><p>React is a JavaScript library for creating user interfaces. Its core principles are declarative code, efficiency, and flexibility. Simply specify what your component looks like and React will keep it up-to-date when the underlying data changes</p></blockquote>
+        <blockquote className='quote_content'><p>React is a JavaScript library for creating user interfaces. Its core principles are declarative code, efficiency, and flexibility. 
+          Simply specify what your component looks like and React will keep it up-to-date when the underlying data changes</p></blockquote>
         
         <a href={'https://reactjs.org/'} style={{color:'#B83F45', paddingLeft:'75%'}}>React</a>
         </div>
