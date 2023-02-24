@@ -23,8 +23,8 @@ a:hover {
   text-decoration: underline;
 }
 
-.information li{
-  list-style-type: circle;
+.Info_link{
+  list-style-type: disc;
   line-height: 20px;
 }
 
