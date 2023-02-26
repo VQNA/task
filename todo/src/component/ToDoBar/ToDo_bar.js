@@ -1,7 +1,6 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './ToDo_bar.css'
-// import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 
 const ToDo_bar = () => {
     const [newItem, setNewItem] = useState("");
@@ -9,6 +8,15 @@ const ToDo_bar = () => {
     const [Filtered, setFiltered] = useState(null)
     const [Editing, setEditing] = useState(null)
     const [EditingText, setEditingText] = useState("")
+    const [toggle, setToggle] = useState(false)
+    const [FilterAll, setFilterAll] = useState(true)
+    const [Ongoing, setOngoing] = useState(false)
+    const [Completed, setCompleted] = useState(false)
+    
+    const active_task = items.filter(todo => todo.status == true)
+    const inactive_task = items.filter(todo => todo.status == false)
+    const renderedTodoList = items.filter(todo => Filtered === null || todo.status == Filtered)
+    const inputRef = useRef()
 
     function addItem() {
         if (!newItem) {
@@ -23,13 +31,13 @@ const ToDo_bar = () => {
         };
 
         setItems((oldList) => [...oldList, item]);
-       setNewItem("");
+        setNewItem("");
     }
 
     function deleteItem(id) {
         const newArray = items.filter((item) => item.id !== id);
         setItems(newArray);
-        
+
 
     }
 
@@ -52,31 +60,19 @@ const ToDo_bar = () => {
 
     function changeAll() {
         let ChangeTask = items.map(task => {
-            return ({ ...task, status: false });
+            return ({ ...task, status: toggle });
         })
+        setToggle(!toggle)
         setItems(ChangeTask)
 
     }
 
-//edit todo functions
-    function handleDoubleClick(e, id) {
-        switch (e.detail) {
-            case 1: {
-                console.log('1')
-                break;
-            }
-            case 2: {
-                console.log(id)
-                setEditing(id)
-                break;
-            }
-        }
-    }
+    //edit todo functions
 
     const handleKeyDownEdit = (event) => {
         if (event.key === 'Enter') {
-            const newTask = [...items].map((task) =>{
-                if(task.id === Editing){
+            const newTask = [...items].map((task) => {
+                if (task.id === Editing) {
                     task.value = EditingText
                 }
                 return task
@@ -84,31 +80,50 @@ const ToDo_bar = () => {
             setItems(newTask)
             setEditing(null);
         }
+        else if (event.key === 'Escape') {
+            setEditing(null);
+
+        }
+    };
+
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        setEditingText(e.target.value);
     };
 
 
 
-//Footer functions
+
+    //Footer functions
     function showAll() {
         setFiltered(null)
-        console.log(Filtered)
-
+        setFilterAll(true)
+        setOngoing(false)
+        setCompleted(false)
     }
 
     function showActive() {
 
         setFiltered(true)
-        console.log(Filtered)
-
+        setFilterAll(false)
+        setOngoing(true)
+        setCompleted(false)
     }
+
     function showComplete() {
         setFiltered(false)
-        console.log(Filtered)
-
+        setFilterAll(false)
+        setOngoing(false)
+        setCompleted(true)
 
     }
 
-    
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            addItem();
+        }
+    };
 
     useEffect(() => {
         const LSitems = JSON.parse(localStorage.getItem('items'));
@@ -121,81 +136,100 @@ const ToDo_bar = () => {
         localStorage.setItem('items', JSON.stringify(items));
     }, [items]);
 
-    const handleKeyDown = (event) => {
-        if (event.key === 'Enter') {
-            addItem();
-        }
-    };
 
-    const active_task = items.filter(todo => todo.status == true)
-    const renderedTodoList = items.filter(todo => Filtered === null || todo.status == Filtered)
-    console.log(renderedTodoList)
+    useEffect(() =>{
+        const CancelInput = e => {
+            console.log(e.target.id)
+            if (e.target.id !== Editing){
+            setEditing(null)
+        }
+        }
+        document.body.addEventListener('click', CancelInput)
+
+        return () => document.body.removeEventListener('click', CancelInput)
+
+    }, [])
+
+
+    
     return (
         <div className="main_todo" style={{ textAlign: 'center' }}>
             <h1 className='title'>todos</h1>
-            <div class='search-bar'>
-                <label className='Toggle-all' onClick={changeAll}>{items.length ? '❯' : ''}</label>
-                <input
-                    className='search-bar-input'
-                    type="text"
-                    placeholder="What needs to be done?"
-                    value={newItem}
-                    onChange={(e) => setNewItem(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                />
+            <div className='main_functions'>
+                <div class='search-bar'>
+                    <label className='Toggle-all' onClick={changeAll}>{items.length ? '❯' : ''}</label>
+                    <input
+                        type="text"
+                        className='Add_task'
+                        placeholder="What needs to be done?"
+                        value={newItem}
+                        onChange={(e) => setNewItem(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                    />
 
+                </div>
+                <div className='task_list'>
+                    <ul style={{ margin: '0', padding: '0', display: 'flex', flexDirection: 'column' }}>
+                        {renderedTodoList.map((item) => {
+                            return (
+                                <li key={item.id} className='items' style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                    <>
+                                        {item.id !== Editing ?
+                                            (<label
+                                                className="update-button"
+                                                onClick={() => changeState(item.id)}
+                                            >
+                                                {item.status ? (<img src={'data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E'} />)
+                                                    : (<img src={'data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E'} />)
+                                                }
+                                            </label>
+                                            )
+                                            : ''}
+
+                                        {item.id === Editing
+                                            ?
+                                            (<input id ={item.id} type='text' defaultValue={item.value} onChange={handleChange} onKeyDown={handleKeyDownEdit} className='edit_input' ref={inputRef} />)
+                                            :
+                                            (<div className={item.status ? 'ongoing' : 'done'} style={{ marginRight: 'auto', marginTop: '15px', fontSize:'22px' }} onDoubleClick={() => { setEditing(item.id) }}>{item.value}</div>)
+                                        }
+
+
+                                        {item.id !== Editing ?
+                                            <label
+                                                className="delete-button"
+                                                onClick={() => deleteItem(item.id)}
+                                            >
+                                                X
+                                            </label>
+                                            : ''}
+                                    </>
+                                </li>
+
+
+                            );
+                        })}
+                    </ul>
+                </div>
+
+                {items.length ? (<div style={{ textAlign: 'left' , color:'#777'}} className='refine_options'>
+
+                    {(active_task.length > 1) ? <span className='task_left'>{active_task.length} items left</span> : <span className='task_left' >{active_task.length} item left</span>}
+                    {/* <span >{active_task.length} item(s) left</span> */}
+                    <div style={{ position: 'absolute', marginLeft: '155px' }}>
+                        <li onClick={showAll} className={FilterAll ? 'filter_options_selected' : 'filter_options'}>All</li>
+                        <li onClick={showActive} className={Ongoing ? 'filter_options_selected' : 'filter_options'}>Active</li>
+                        <li onClick={showComplete} className={Completed ? 'filter_options_selected' : 'filter_options'}>Complete</li>
+                    </div>
+                    {/* <label onClick={ClearComplete}>Clear completed</label> */}
+                    {inactive_task.length ? <label onClick={ClearComplete} style={{ float: 'right', marginRight: '10px' }} class='clear_complete' >Clear completed</label> : ''}
+                </div>) : ''}
             </div>
-            <ul>
-                {renderedTodoList.map((item) => {
-                    return (
-                        <div className='task_list'>
-                            <li key={item.id}   style={{ display: 'flex', alignItems: "center", justifyContent: 'space-between' }}>
-                                <label
-                                    className="update-button"
-                                    onClick={() => changeState(item.id)}
-                                    style={{ marginRight: '20px' }}
-                                >
-                                    {item.status ? (<img src={'data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E'}/>) 
-                                    : (<img src={'data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E'}/>)
-                                    }
-                                </label>
-                                
-                                {item.id === Editing 
-                                ?
-                                (<input type='text' onChange={(e) => setEditingText(e.target.value)} onKeyDown = {handleKeyDownEdit}/>) 
-                                : 
-                                (<div className={item.status ? 'ongoing' : 'done'} onDoubleClick={() => setEditing(item.id)}>{item.value}</div>)}
-                                
-
-
-                                <label
-                                    className="delete-button"
-                                    onClick={() => deleteItem(item.id)}
-                                >
-                                    X
-                                </label>
-
-
-                            </li>
-
-
-                        </div>
-                    );
-                })}
-            </ul>
-            {items.length ? <div style={{ display: 'flex', justifyContent:'space-around', textAlign:'justify'}} className = 'refine_options'>
-                <span >{active_task.length} item(s) left</span>
-                <label  onClick={showAll}>All</label>
-                <label  onClick={showActive}>Active</label>
-                <label  onClick={showComplete}>Complete</label>
-                <label  onClick={ClearComplete}>Clear completed</label>
-            </div> : ''}
 
             <footer className='info'>
                 <ul>
                     <li>Double-click to edit a todo</li>
-                    <li>Created by <a href='https://github.com/petehunt/' target="_blank" rel="noopener noreferrer" style={{ display: 'inline', color: 'grey' }}>petehunt</a></li>
-                    <li>Part of <a href='https://todomvc.com/' target="_blank" rel="noopener noreferrer" style={{ display: 'inline', color: 'grey' }}>TodoMVC</a></li>
+                    <li>Created by <a href='https://github.com/petehunt/' target="_blank" rel="noopener noreferrer" >petehunt</a></li>
+                    <li>Part of <a href='https://todomvc.com/' target="_blank" rel="noopener noreferrer">TodoMVC</a></li>
                 </ul>
             </footer>
 
