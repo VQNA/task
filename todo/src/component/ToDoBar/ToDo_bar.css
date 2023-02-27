@@ -1,9 +1,13 @@
+*{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif!important;
+
+}
+
 .main_todo {
   margin: auto;
   margin-top: -60px !important;
   text-align: "center";
   width: 550px;
-  
 }
 
 .info {
@@ -13,7 +17,7 @@
 
 .info ul li a {
   color: #bfbfbf;
-  display: 'inline';
+  display: "inline";
 }
 
 li {
@@ -24,7 +28,7 @@ li {
 .title {
   color: #af2f2f26;
   font-size: 100px;
-  font-weight: normal;
+  font-weight: 100;
   margin-bottom: 0px;
 }
 
@@ -33,9 +37,7 @@ li {
   border: none;
   box-sizing: border-box;
   background-color: white;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
-	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
-
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
 .search-bar input {
@@ -47,7 +49,6 @@ li {
   box-sizing: border-box;
   border-style: none;
   font-size: 24px;
-
 }
 input:focus {
   outline: none;
@@ -82,17 +83,19 @@ input::placeholder {
   color: #e6e6e6;
   font-style: italic;
   font-size: 24px;
-  font-weight: normal;
+  font-weight: 300 !important;
 }
 
 .done {
   text-decoration: line-through;
-  color: #e6e6e6;
+  color: #e6e6e6 !important;
 }
 
 .info {
   font-size: 12px;
-  margin-top: 70px;
+  margin-top: 60px;
+  margin-left: -30px;
+  margin-right: auto
 }
 
 .info ul li a {
@@ -110,10 +113,12 @@ input::placeholder {
   box-sizing: border-box;
   border: 0px solid lightgrey;
   margin-top: -5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
 .items {
-  border: 1px solid lightgrey;
+  border-top: 1px solid lightgrey;
+
   height: 55px;
   margin: 0px;
 }
@@ -127,7 +132,7 @@ input::placeholder {
   padding-right: 10px;
   font-size: 15px;
   margin: 20px 12px 0px 12px;
-  }
+}
 
 .delete-button:hover {
   color: #cc9a9a;
@@ -144,33 +149,39 @@ input::placeholder {
   /* padding-left: 20px;
   padding-right: 20px; */
   border: none;
-
 }
 
 .refine_options {
   background-color: white;
   box-sizing: border-box;
-  border: 1px solid lightgrey;
+  border-top: 1px solid lightgrey;
   padding-top: 15px;
   padding-bottom: 15px;
   margin-top: 0;
   font-size: 13px;
   overflow: hidden;
+
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6,
     0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6,
-    0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    0 17px 2px -6px rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+    0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
 .filter_options {
-  margin: 12%;
+  margin: 15px;
   display: inline;
   text-decoration: none;
   border: 1px solid transparent;
   border-radius: 3px;
 }
 
-.filter_options:active {
-  border-color: rgba(175, 47, 47, 0.1);
+.filter_options:hover {
+  display: inline;
+  padding: 3px 7px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  border-color: rgba(175, 47, 47, 0.2);
 }
 
 .filter_options_selected {
@@ -185,25 +196,23 @@ input::placeholder {
 .task_left {
   float: left;
   margin-right: 30px;
-  margin-left: 10px;
+  margin-left: 18px;
   text-align: left;
 }
 
 .main_functions {
   background-color: white;
-  box-shadow: outset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: outset 0 -1px 5px 0 rgba(0, 0, 0, 0.2) !important;
   border: 0;
 }
 
-.edit_input{
+.edit_input {
   margin: 0px 1.4px 0px 64px;
   width: 500px;
   border: 0.5px solid black;
   box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
-
 }
 
-.clear_complete:hover{
+.clear_complete:hover {
   text-decoration: underline;
 }
-
