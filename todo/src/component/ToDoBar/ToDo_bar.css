@@ -71,7 +71,7 @@ input:focus {
   transform: rotate(90deg);
   display: inline;
   font-size: 24px;
-  color: black;
+  color: grey!important;
   background-color: none;
   padding: 18px 29px 12px 37px;
   height: 35px;

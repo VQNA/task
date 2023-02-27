@@ -151,7 +151,6 @@ const ToDo_bar = () => {
               {items.length ? "❯" : ""}
             </label>
           )}{" "}
-          {/* {(active_task.length === 0 ? <label className='Toggle-all-active' onClick={changeAll} >{items.length ? '❯' : ''}</label> : <label className='Toggle-all' onClick={changeAll} >{items.length ? '❯' : ''}</label>)} */}
           <input
             type="text"
             className="Add_task"
@@ -256,7 +255,7 @@ const ToDo_bar = () => {
             ) : (
               <span className="task_left">{active_task.length} item left</span>
             )}
-            <div style={{ position: "absolute", marginLeft: "178px" }}>
+            <div style={{ position: "absolute", marginLeft: "169px" }}>
               <li
                 onClick={showAll}
                 className={
@@ -285,7 +284,7 @@ const ToDo_bar = () => {
             {inactive_task.length ? (
               <label
                 onClick={ClearComplete}
-                style={{ float: "right", marginRight: "10px" }}
+                style={{ float: "right", marginRight: "15px" }}
                 class="clear_complete"
               >
                 Clear completed
