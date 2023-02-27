@@ -88,7 +88,7 @@ input::placeholder {
 
 .done {
   text-decoration: line-through;
-  color: #e6e6e6 !important;
+  color: #d9d9d9 !important;
 }
 
 .info {
@@ -182,6 +182,7 @@ input::placeholder {
   border: 1px solid transparent;
   border-radius: 3px;
   border-color: rgba(175, 47, 47, 0.2);
+  cursor: pointer
 }
 
 .filter_options_selected {
@@ -215,4 +216,5 @@ input::placeholder {
 
 .clear_complete:hover {
   text-decoration: underline;
+  cursor: pointer
 }
