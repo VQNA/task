@@ -1,6 +1,5 @@
-*{
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif!important;
-
+* {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
 .main_todo {
@@ -71,7 +70,7 @@ input:focus {
   transform: rotate(90deg);
   display: inline;
   font-size: 24px;
-  color: grey!important;
+  color: grey !important;
   background-color: none;
   padding: 18px 29px 12px 37px;
   height: 35px;
@@ -95,7 +94,7 @@ input::placeholder {
   font-size: 12px;
   margin-top: 60px;
   margin-left: -30px;
-  margin-right: auto
+  margin-right: auto;
 }
 
 .info ul li a {
@@ -146,8 +145,6 @@ input::placeholder {
   bottom: 0;
   margin: 7px 20px 0px 12px;
   padding-right: 30px;
-  /* padding-left: 20px;
-  padding-right: 20px; */
   border: none;
 }
 
@@ -182,7 +179,7 @@ input::placeholder {
   border: 1px solid transparent;
   border-radius: 3px;
   border-color: rgba(175, 47, 47, 0.2);
-  cursor: pointer
+  cursor: pointer;
 }
 
 .filter_options_selected {
@@ -216,5 +213,5 @@ input::placeholder {
 
 .clear_complete:hover {
   text-decoration: underline;
-  cursor: pointer
+  cursor: pointer;
 }

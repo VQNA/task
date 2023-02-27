@@ -1,8 +1,8 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
-import "./ToDo_bar.css";
+import { useState, useEffect } from "react";
+import "./ToDoBar.css";
 
-const ToDo_bar = () => {
+const ToDoBar = () => {
   const [newItem, setNewItem] = useState("");
   const [items, setItems] = useState([]);
   const [Filtered, setFiltered] = useState(null);
@@ -18,7 +18,6 @@ const ToDo_bar = () => {
   const renderedTodoList = items.filter(
     (todo) => Filtered === null || todo.status == Filtered
   );
-//   const inputRef = useRef();
 
   function addItem() {
     if (!newItem) {
@@ -41,7 +40,7 @@ const ToDo_bar = () => {
     setItems(newArray);
   }
 
-  function ClearComplete() {
+  function clearComplete() {
     const newArray = items.filter((item) => item.status !== false);
     setItems(newArray);
   }
@@ -64,8 +63,6 @@ const ToDo_bar = () => {
     setItems(ChangeTask);
   }
 
-  //edit todo functions
-
   const handleKeyDownEdit = (event) => {
     if (event.key === "Enter") {
       const newTask = [...items].map((task) => {
@@ -86,7 +83,6 @@ const ToDo_bar = () => {
     setEditingText(e.target.value);
   };
 
-  //Footer functions
   function showAll() {
     setFiltered(null);
     setFilterAll(true);
@@ -141,7 +137,7 @@ const ToDo_bar = () => {
     <div className="main_todo" style={{ textAlign: "center" }}>
       <h1 className="title">todos</h1>
       <div className="main_functions">
-        <div class="search-bar">
+        <div className="search-bar">
           {active_task.length === 0 ? (
             <label className="Toggle-all-active" onClick={changeAll}>
               {items.length ? "❯" : ""}
@@ -187,12 +183,14 @@ const ToDo_bar = () => {
                             src={
                               "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E"
                             }
+                            alt="empty_circle"
                           />
                         ) : (
                           <img
                             src={
                               "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E"
                             }
+                            alt="checked_circle"
                           />
                         )}
                       </label>
@@ -283,9 +281,9 @@ const ToDo_bar = () => {
             </div>
             {inactive_task.length ? (
               <label
-                onClick={ClearComplete}
+                onClick={clearComplete}
                 style={{ float: "right", marginRight: "15px" }}
-                class="clear_complete"
+                className="clear_complete"
               >
                 Clear completed
               </label>
@@ -300,8 +298,10 @@ const ToDo_bar = () => {
 
       <footer className="info">
         <ul>
-          <li style={{ fontSize: "10px" , fontWeight:'300'}}>Double-click to edit a todo</li>
-          <li style={{ fontSize: "10px" , fontWeight:'300'}}>
+          <li style={{ fontSize: "10px", fontWeight: "300" }}>
+            Double-click to edit a todo
+          </li>
+          <li style={{ fontSize: "10px", fontWeight: "300" }}>
             Created by{" "}
             <a
               href="https://github.com/petehunt/"
@@ -311,7 +311,7 @@ const ToDo_bar = () => {
               petehunt
             </a>
           </li>
-          <li style={{ fontSize: "10px" , fontWeight:'300'}}>
+          <li style={{ fontSize: "10px", fontWeight: "300" }}>
             Part of{" "}
             <a
               href="https://todomvc.com/"
@@ -327,4 +327,4 @@ const ToDo_bar = () => {
   );
 };
 
-export default ToDo_bar;
+export default ToDoBar;

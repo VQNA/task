@@ -1,15 +1,14 @@
-
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.Main{
-  font-size:13px;
-  margin: 5px 0px 3px 0px
+.Main {
+  font-size: 13px;
+  margin: 5px 0px 3px 0px;
 }
 
-.Main h3{
-  margin: 15px 0px 2px 0px
+.Main h3 {
+  margin: 15px 0px 2px 0px;
 }
 
 .RightSide {
@@ -21,14 +20,13 @@
   margin-top: 15px;
   padding-left: 10px;
   padding-right: 10px;
-
 }
-.Quote{
+.Quote {
   font-size: 15px;
 }
 a {
   text-decoration: none;
-  color:'#B83F45' !important;
+  color: "#B83F45" !important;
 }
 
 a:hover {
@@ -36,57 +34,53 @@ a:hover {
   color: #787e7e !important;
 }
 
-.Info_link{
+.Info_link {
   list-style-type: disc;
   line-height: 10px;
 }
 
-
 .RightSide hr {
   border-top: 1px dashed #787e7e;
-  margin: 25px 0px 25px 0px
+  margin: 25px 0px 25px 0px;
 }
 
 blockquote {
   position: relative;
   padding: 10px;
   padding-right: 10px;
-  background: rgba(0, 0, 0, .04);
+  background: rgba(0, 0, 0, 0.04);
   border-radius: 15px;
   font-style: italic;
-  margin-left:2px;
+  margin-left: 2px;
   margin-right: 10px;
   text-align: left;
   font-size: 15px;
-  color: #4d4d4d
+  color: #4d4d4d;
 }
 
-
-
 blockquote:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 100%;
   right: 30px;
   border: 13px solid transparent;
-  border-top-color: rgba(0, 0, 0, .04);
+  border-top-color: rgba(0, 0, 0, 0.04);
 }
 
 .quote_content p:before {
-  content: '“';
+  content: "“";
   font-size: 60px;
-  opacity: .15;
+  opacity: 0.15;
   position: absolute;
   top: -18px;
   left: 3px;
 }
 
 .quote_content p:after {
-  content: '”';
+  content: "”";
   font-size: 60px;
-  opacity: .15;
+  opacity: 0.15;
   position: absolute;
   bottom: -50px;
   right: 10px;
 }
-
