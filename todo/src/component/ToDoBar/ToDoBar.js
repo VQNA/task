@@ -13,10 +13,10 @@ const ToDoBar = () => {
   const [Ongoing, setOngoing] = useState(false);
   const [Completed, setCompleted] = useState(false);
 
-  const active_task = items.filter((todo) => todo.status == true);
-  const inactive_task = items.filter((todo) => todo.status == false);
+  const active_task = items.filter((todo) => todo.status === true);
+  const inactive_task = items.filter((todo) => todo.status === false);
   const renderedTodoList = items.filter(
-    (todo) => Filtered === null || todo.status == Filtered
+    (todo) => Filtered === null || todo.status === Filtered
   );
 
   function addItem() {
@@ -123,7 +123,6 @@ const ToDoBar = () => {
 
   useEffect(() => {
     const CancelInput = (e) => {
-      console.log(e.target.id);
       if (e.target.id !== Editing) {
         setEditing(null);
       }

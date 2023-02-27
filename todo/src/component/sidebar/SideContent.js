@@ -32,7 +32,7 @@ const SideContent = () => {
           Source
         </a>
         <h3 style={{ fontWeight: "normal" }}>Scala.js + React</h3>
-        <a href="" style={{ display: "inline", color: "#B83F45" }}>
+        <a href="/" style={{ display: "inline", color: "#B83F45" }}>
           Demo
         </a>
         , <span />
@@ -47,7 +47,7 @@ const SideContent = () => {
           Source
         </a>
         <h3 style={{ fontWeight: "normal" }}>TypeSript + React</h3>
-        <a href="" style={{ display: "inline", color: "#B83F45" }}>
+        <a href="/" style={{ display: "inline", color: "#B83F45" }}>
           Demo
         </a>
         , <span />
@@ -62,7 +62,7 @@ const SideContent = () => {
           Source
         </a>
         <h3 style={{ fontWeight: "normal" }}>React + Alt</h3>
-        <a href="" style={{ display: "inline", color: "#B83F45" }}>
+        <a href="/" style={{ display: "inline", color: "#B83F45" }}>
           Demo
         </a>
         , <span />
