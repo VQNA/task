@@ -127,7 +127,7 @@ const ToDo_bar = () => {
 
     useEffect(() => {
         const LSitems = JSON.parse(localStorage.getItem('items'));
-        if (LSitems) {
+        if (LSitems.length > 0) {
             setItems(LSitems);
         }
     }, []);
@@ -138,7 +138,7 @@ const ToDo_bar = () => {
 
 
     useEffect(() =>{
-        const CancelInput = e => {
+        const CancelInput = (e) => {
             console.log(e.target.id)
             if (e.target.id !== Editing){
             setEditing(null)
@@ -157,7 +157,7 @@ const ToDo_bar = () => {
             <h1 className='title'>todos</h1>
             <div className='main_functions'>
                 <div class='search-bar'>
-                    <label className='Toggle-all' onClick={changeAll}>{items.length ? '❯' : ''}</label>
+                {(active_task.length === 0 ? <label className='Toggle-all-active' onClick={changeAll} >{items.length ? '❯' : ''}</label> : <label className='Toggle-all' onClick={changeAll} >{items.length ? '❯' : ''}</label>)}                    {/* {(active_task.length === 0 ? <label className='Toggle-all-active' onClick={changeAll} >{items.length ? '❯' : ''}</label> : <label className='Toggle-all' onClick={changeAll} >{items.length ? '❯' : ''}</label>)} */}
                     <input
                         type="text"
                         className='Add_task'
@@ -188,7 +188,7 @@ const ToDo_bar = () => {
 
                                         {item.id === Editing
                                             ?
-                                            (<input id ={item.id} type='text' defaultValue={item.value} onChange={handleChange} onKeyDown={handleKeyDownEdit} className='edit_input' ref={inputRef} />)
+                                            (<input id ={item.id} type='text' defaultValue={item.value} onChange={handleChange} onKeyDown={handleKeyDownEdit} className='edit_input' ref={inputRef} style={{fontSize:'22px'}}/>)
                                             :
                                             (<div className={item.status ? 'ongoing' : 'done'} style={{ marginRight: 'auto', marginTop: '15px', fontSize:'22px' }} onDoubleClick={() => { setEditing(item.id) }}>{item.value}</div>)
                                         }
@@ -214,22 +214,20 @@ const ToDo_bar = () => {
                 {items.length ? (<div style={{ textAlign: 'left' , color:'#777'}} className='refine_options'>
 
                     {(active_task.length > 1) ? <span className='task_left'>{active_task.length} items left</span> : <span className='task_left' >{active_task.length} item left</span>}
-                    {/* <span >{active_task.length} item(s) left</span> */}
                     <div style={{ position: 'absolute', marginLeft: '155px' }}>
                         <li onClick={showAll} className={FilterAll ? 'filter_options_selected' : 'filter_options'}>All</li>
                         <li onClick={showActive} className={Ongoing ? 'filter_options_selected' : 'filter_options'}>Active</li>
                         <li onClick={showComplete} className={Completed ? 'filter_options_selected' : 'filter_options'}>Complete</li>
                     </div>
-                    {/* <label onClick={ClearComplete}>Clear completed</label> */}
                     {inactive_task.length ? <label onClick={ClearComplete} style={{ float: 'right', marginRight: '10px' }} class='clear_complete' >Clear completed</label> : ''}
                 </div>) : ''}
             </div>
 
             <footer className='info'>
                 <ul>
-                    <li>Double-click to edit a todo</li>
-                    <li>Created by <a href='https://github.com/petehunt/' target="_blank" rel="noopener noreferrer" >petehunt</a></li>
-                    <li>Part of <a href='https://todomvc.com/' target="_blank" rel="noopener noreferrer">TodoMVC</a></li>
+                    <li style={{fontSize:'10px'}}>Double-click to edit a todo</li>
+                    <li style={{fontSize:'10px'}}>Created by <a href='https://github.com/petehunt/' target="_blank" rel="noopener noreferrer" >petehunt</a></li>
+                    <li style={{fontSize:'10px'}}>Part of <a href='https://todomvc.com/' target="_blank" rel="noopener noreferrer">TodoMVC</a></li>
                 </ul>
             </footer>
 

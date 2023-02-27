@@ -57,6 +57,19 @@ input:focus {
   transform: rotate(90deg);
   display: inline;
   font-size: 24px;
+  color: #e6e6e6;
+  background-color: none;
+  padding: 18px 29px 12px 37px;
+  height: 35px;
+  margin: 0;
+  border: none;
+}
+
+.Toggle-all-active {
+  position: absolute;
+  transform: rotate(90deg);
+  display: inline;
+  font-size: 24px;
   color: black;
   background-color: none;
   padding: 18px 29px 12px 37px;
@@ -82,12 +95,13 @@ input::placeholder {
   margin-top: 70px;
 }
 
-.info a {
+.info ul li a {
   text-decoration: none;
 }
 
 .info a:hover {
   text-decoration: underline;
+  color: #bfbfbf !important;
 }
 
 .task_list {
@@ -148,7 +162,7 @@ input::placeholder {
 }
 
 .filter_options {
-  margin: 10%;
+  margin: 12%;
   display: inline;
   text-decoration: none;
   border: 1px solid transparent;
@@ -160,7 +174,6 @@ input::placeholder {
 }
 
 .filter_options_selected {
-  margin: 10%;
   display: inline;
   padding: 3px 7px;
   text-decoration: none;
