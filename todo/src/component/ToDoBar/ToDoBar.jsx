@@ -3,31 +3,30 @@ import { useState, useEffect } from 'react';
 import './ToDoBar.css';
 
 const ToDoBar = () => {
-  const [newItem, setNewItem] = useState("");
-  const [items, setItems] = useState([]);
+  const [NewItem, setNewItem] = useState("");
+  const [Items, setItems] = useState([]);
   const [Filtered, setFiltered] = useState(null);
   const [Editing, setEditing] = useState(null);
   const [EditingText, setEditingText] = useState("");
-  const [toggle, setToggle] = useState(false);
+  const [Toggle, setToggle] = useState(false);
   const [FilterAll, setFilterAll] = useState(true);
   const [Ongoing, setOngoing] = useState(false);
   const [Completed, setCompleted] = useState(false);
 
-  const active_task = items.filter((todo) => todo.status === true);
-  const inactive_task = items.filter((todo) => todo.status === false);
-  const renderedTodoList = items.filter(
+  const active_task = Items.filter((todo) => todo.status === true);
+  const inactive_task = Items.filter((todo) => todo.status === false);
+  const renderedTodoList = Items.filter(
     (todo) => Filtered === null || todo.status === Filtered
   );
 
   function addItem() {
-    if (!newItem) {
-      alert("Please enter an item.");
+    if (!NewItem) {
       return;
     }
 
     const item = {
       id: Math.floor(Math.random() * 1000),
-      value: newItem,
+      value: NewItem,
       status: true,
     };
 
@@ -36,17 +35,17 @@ const ToDoBar = () => {
   }
 
   function deleteItem(id) {
-    const newArray = items.filter((item) => item.id !== id);
+    const newArray = Items.filter((item) => item.id !== id);
     setItems(newArray);
   }
 
   function clearComplete() {
-    const newArray = items.filter((item) => item.status !== false);
+    const newArray = Items.filter((item) => item.status !== false);
     setItems(newArray);
   }
 
   function changeState(id) {
-    let ChangeTask = items.map((task) => {
+    let ChangeTask = Items.map((task) => {
       if (task.id === id) {
         return {...task, status: !task.status};
       }
@@ -56,16 +55,16 @@ const ToDoBar = () => {
   }
 
   function changeAll() {
-    let ChangeTask = items.map((task) => {
-      return {...task, status: toggle};
+    let ChangeTask = Items.map((task) => {
+      return {...task, status: Toggle};
     });
-    setToggle(!toggle);
+    setToggle(!Toggle);
     setItems(ChangeTask);
   }
 
   const handleKeyDownEdit = (event) => {
     if (event.key === "Enter") {
-      const newTask = [...items].map((task) => {
+      const newTask = [...Items].map((task) => {
         if (task.id === Editing) {
           task.value = EditingText;
         }
@@ -118,8 +117,8 @@ const ToDoBar = () => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("items", JSON.stringify(items));
-  }, [items]);
+    localStorage.setItem("items", JSON.stringify(Items));
+  }, [Items]);
 
   useEffect(() => {
     const CancelInput = (e) => {
@@ -139,18 +138,18 @@ const ToDoBar = () => {
         <div className="search-bar">
           {active_task.length === 0 ? (
             <label className="Toggle-all-active" onClick={changeAll}>
-              {items.length ? "❯" : ""}
+              {Items.length ? "❯" : ""}
             </label>
           ) : (
             <label className="Toggle-all" onClick={changeAll}>
-              {items.length ? "❯" : ""}
+              {Items.length ? "❯" : ""}
             </label>
           )}{" "}
           <input
             type="text"
             className="Add_task"
             placeholder="What needs to be done?"
-            value={newItem}
+            value={NewItem}
             onChange={(e) => setNewItem(e.target.value)}
             onKeyDown={handleKeyDown}
           />
@@ -226,7 +225,7 @@ const ToDoBar = () => {
           </ul>
         </div>
 
-        {items.length ? (
+        {Items.length ? (
           <div
             className="refine_options"
           >
