@@ -1,6 +1,6 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import './ToDoBar.css';
+import React from "react";
+import { useState, useEffect } from "react";
+import "./ToDoBar.css";
 
 const ToDoBar = () => {
   const [NewItem, setNewItem] = useState("");
@@ -47,7 +47,7 @@ const ToDoBar = () => {
   function changeState(id) {
     let ChangeTask = Items.map((task) => {
       if (task.id === id) {
-        return {...task, status: !task.status};
+        return { ...task, status: !task.status };
       }
       return task;
     });
@@ -56,7 +56,7 @@ const ToDoBar = () => {
 
   function changeAll() {
     let ChangeTask = Items.map((task) => {
-      return {...task, status: Toggle};
+      return { ...task, status: Toggle };
     });
     setToggle(!Toggle);
     setItems(ChangeTask);
@@ -158,16 +158,15 @@ const ToDoBar = () => {
           <ul>
             {renderedTodoList.map((item) => {
               return (
-                <li
-                  key={item.id}
-                  className="items"
-                >
+                <li key={item.id} className="items">
                   <>
                     {item.id !== Editing ? (
                       <label
                         className="update-button"
                         onClick={() => changeState(item.id)}
                       >
+
+                        
                         {item.status ? (
                           <img
                             src={
@@ -226,12 +225,13 @@ const ToDoBar = () => {
         </div>
 
         {Items.length ? (
-          <div
-            className="refine_options"
-          >
-            <span className="task_left">{active_task.length} {active_task.length > 1 ? "items left" : "item left"}</span>
-               
-            <div className='filter_box'>
+          <div className="refine_options">
+            <span className="task_left">
+              {active_task.length}{" "}
+              {active_task.length > 1 ? "items left" : "item left"}
+            </span>
+
+            <div className="filter_box">
               <li
                 onClick={showAll}
                 className={
@@ -258,10 +258,7 @@ const ToDoBar = () => {
               </li>
             </div>
             {inactive_task.length ? (
-              <label
-                onClick={clearComplete}
-                className="clear_complete"
-              >
+              <label onClick={clearComplete} className="clear_complete">
                 Clear completed
               </label>
             ) : (
@@ -275,9 +272,7 @@ const ToDoBar = () => {
 
       <footer className="info">
         <ul>
-          <li>
-            Double-click to edit a todo
-          </li>
+          <li>Double-click to edit a todo</li>
           <li>
             Created by{" "}
             <a
