@@ -1,5 +1,5 @@
 import './App.css';
-import SideContent from './component/sidebar/SideContent';
+import SideContent from './component/SideContent/SideContent';
 import ToDoBar from './component/ToDoBar/ToDoBar';
 function App() {
   return (

@@ -1,18 +1,24 @@
 * {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .main_todo {
   margin: auto;
-  margin-top: -60px !important;
-  text-align: "center";
+  margin-top: -60px;
+  text-align: center;
   width: 550px;
 }
 
 .info {
   color: #bfbfbf;
-  text-align: center;
+  font-size: 10px;
+  font-weight: 300;
+  margin-top: 60px;
+  margin-left: -30px;
+  margin-right: auto;
 }
+
+
 
 .info ul li a {
   color: #bfbfbf;
@@ -70,7 +76,7 @@ input:focus {
   transform: rotate(90deg);
   display: inline;
   font-size: 24px;
-  color: grey !important;
+  color: grey;
   background-color: none;
   padding: 18px 29px 12px 37px;
   height: 35px;
@@ -82,26 +88,28 @@ input::placeholder {
   color: #e6e6e6;
   font-style: italic;
   font-size: 24px;
-  font-weight: 300 !important;
+  font-weight: 300 ;
+}
+
+.ongoing, .done{
+  margin-right: auto;
+  margin-top: 15px;
+  font-size: 22px;
+  color: #4D4D4D
 }
 
 .done {
   text-decoration: line-through;
-  color: #d9d9d9 !important;
+  color: #d9d9d9 ;
 }
 
-.info {
-  font-size: 12px;
-  margin-top: 60px;
-  margin-left: -30px;
-  margin-right: auto;
-}
+
 
 .info ul li a {
   text-decoration: none;
 }
 
-.info a:hover {
+.info ul li a:hover {
   text-decoration: underline;
   color: #bfbfbf !important;
 }
@@ -115,9 +123,18 @@ input::placeholder {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
+.task_list ul{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+
 .items {
   border-top: 1px solid lightgrey;
-
+  display:flex;
+  justify-content: space-evenly;
   height: 55px;
   margin: 0px;
 }
@@ -157,11 +174,18 @@ input::placeholder {
   margin-top: 0;
   font-size: 13px;
   overflow: hidden;
+  text-align: left;
+  color: #777;
 
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6,
     0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6,
     0 17px 2px -6px rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.2),
     0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.filter_box{
+  position:absolute;
+  margin-left: 169px;
 }
 
 .filter_options {
@@ -200,7 +224,7 @@ input::placeholder {
 
 .main_functions {
   background-color: white;
-  box-shadow: outset 0 -1px 5px 0 rgba(0, 0, 0, 0.2) !important;
+  box-shadow: outset 0 -1px 5px 0 rgba(0, 0, 0, 0.2) ;
   border: 0;
 }
 
@@ -209,6 +233,12 @@ input::placeholder {
   width: 500px;
   border: 0.5px solid black;
   box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+  font-size: 22px;
+}
+
+.clear_complete {
+  float:right;
+  margin-right: 15px;
 }
 
 .clear_complete:hover {

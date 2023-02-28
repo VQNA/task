@@ -1,25 +1,22 @@
-import React from 'react';
-import './SideContent.css';
+import React from "react";
+import "./SideContent.css";
 const SideContent = () => {
   return (
     <div className="RightSide">
-      <h1 style={{fontWeight: "normal", fontSize: "24px"}}>React</h1>
-      <div className="Main" style={{fontWeight: "normal", fontSize: "14px"}}>
-        <h3 style={{fontWeight: "normal"}}>Example</h3>
+      <h1>React</h1>
+      <div className="Main">
+        <h3>Example</h3>
         <a
           href={
             "https://github.com/tastejs/todomvc/tree/gh-pages/examples/react"
           }
           target="_blank"
           rel="noopener noreferrer"
-          style={{display: "inline", color: "#B83F45"}}
         >
           Source
         </a>
-        <h3 style={{ fontWeight: "normal" }}>React + Backbone.js</h3>
-        <a href="/" style={{display: "inline", color: "#B83F45"}}>
-          Demo
-        </a>
+        <h3>React + Backbone.js</h3>
+        <a href="/">Demo</a>
         , <span />
         <a
           href={
@@ -27,14 +24,11 @@ const SideContent = () => {
           }
           target="_blank"
           rel="noopener noreferrer"
-          style={{display: "inline", color: "#B83F45"}}
         >
           Source
         </a>
-        <h3 style={{ fontWeight: "normal" }}>Scala.js + React</h3>
-        <a href="/" style={{display: "inline", color: "#B83F45"}}>
-          Demo
-        </a>
+        <h3>Scala.js + React</h3>
+        <a href="/">Demo</a>
         , <span />
         <a
           href={
@@ -42,14 +36,11 @@ const SideContent = () => {
           }
           target="_blank"
           rel="noopener noreferrer"
-          style={{display: "inline", color: "#B83F45"}}
         >
           Source
         </a>
-        <h3 style={{ fontWeight: "normal" }}>TypeSript + React</h3>
-        <a href="/" style={{display: "inline", color: "#B83F45"}}>
-          Demo
-        </a>
+        <h3>TypeSript + React</h3>
+        <a href="/">Demo</a>
         , <span />
         <a
           href={
@@ -57,14 +48,11 @@ const SideContent = () => {
           }
           target="_blank"
           rel="noopener noreferrer"
-          style={{display: "inline", color: "#B83F45"}}
         >
           Source
         </a>
-        <h3 style={{ fontWeight: "normal" }}>React + Alt</h3>
-        <a href="/" style={{display: "inline", color: "#B83F45"}}>
-          Demo
-        </a>
+        <h3>React + Alt</h3>
+        <a href="/">Demo</a>
         , <span />
         <a
           href={
@@ -72,7 +60,6 @@ const SideContent = () => {
           }
           target="_blank"
           rel="noopener noreferrer"
-          style={{ display: "inline", color: "#B83F45" }}
         >
           Source
         </a>
@@ -82,7 +69,7 @@ const SideContent = () => {
 
       <div className="Quote">
         <blockquote className="quote_content">
-          <p style={{ lineHeight: "1.2" }}>
+          <p>
             React is a JavaScript library for creating user interfaces. Its core
             principles are declarative code, efficiency, and flexibility. Simply
             specify what your component looks like and React will keep it
@@ -90,27 +77,19 @@ const SideContent = () => {
           </p>
         </blockquote>
 
-        <a
-          href={"https://reactjs.org/"}
-          style={{ color: "#B83F45", paddingLeft: "75%" }}
-        >
-          React
-        </a>
+        <a href={"https://reactjs.org/"}>React</a>
       </div>
 
       <hr />
 
       <div className="Information">
-        <h3 style={{ fontWeight: "normal", fontSize: "18px" }}>
-          Official Resources
-        </h3>
-        <ul style={{ marginLeft: "-20px", fontSize: "14px" }}>
+        <h3>Official Resources</h3>
+        <ul>
           <li className="Info_link">
             <a
               href={"https://reactjs.org/tutorial/tutorial.html"}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#B83F45" }}
             >
               Tutorial
             </a>
@@ -122,7 +101,6 @@ const SideContent = () => {
               }
               target="_blank"
               rel="noopener noreferrer"
-              style={{color: "#B83F45"}}
             >
               Philosophy
             </a>
@@ -132,7 +110,6 @@ const SideContent = () => {
               href={"https://reactjs.org/community/support.html"}
               target="_blank"
               rel="noopener noreferrer"
-              style={{color: "#B83F45"}}
             >
               Support
             </a>
@@ -144,24 +121,18 @@ const SideContent = () => {
               }
               target="_blank"
               rel="noopener noreferrer"
-              style={{color: "#B83F45"}}
             >
               Flux architecture example
             </a>
           </li>
         </ul>
-        <h3
-          style={{ fontWeight: "normal", fontSize: "18px", marginTop: "33px" }}
-        >
-          Commmunity
-        </h3>
-        <ul style={{ marginLeft: "-20px", fontSize: "14px" }}>
+        <h3>Commmunity</h3>
+        <ul>
           <li className="Info_link">
             <a
               href="https://stackoverflow.com/questions/tagged/reactjs"
               target="_blank"
               rel="noopener noreferrer"
-              style={{color: "#B83F45"}}
             >
               ReactJS on Stack Overflow
             </a>
@@ -173,7 +144,6 @@ const SideContent = () => {
               }
               target="_blank"
               rel="noopener noreferrer"
-              style={{color: "#B83F45"}}
             >
               Google Groups Mailing List
             </a>
@@ -183,7 +153,6 @@ const SideContent = () => {
               href={"irc://chat.freenode.net/reactjs"}
               target="_blank"
               rel="noopener noreferrer"
-              style={{color: "#B83F45"}}
             >
               IRC
             </a>
@@ -191,9 +160,9 @@ const SideContent = () => {
         </ul>
       </div>
 
-      <hr /> 
+      <hr />
 
-      <div className="footer" style={{ fontStyle: "italic", fontSize: "14px", lineHeight:"20px" }}>
+      <div className="footer">
         <p>
           If you have other helpful links to share, or find any of the links
           above no longer work, please
@@ -201,7 +170,6 @@ const SideContent = () => {
             href="https://github.com/tastejs/todomvc/issues"
             target="_blank"
             rel="noopener noreferrer"
-            style={{color: "#B83F45"}}
           >
             {" "}
             let us know.

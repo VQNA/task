@@ -5,10 +5,25 @@
 .Main {
   font-size: 13px;
   margin: 5px 0px 3px 0px;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.Main h3 {
+  font-weight: normal;
+}
+
+.RightSide h1 {
+  font-weight: normal;
+  font-size: 24px;
 }
 
 .Main h3 {
   margin: 15px 0px 2px 0px;
+}
+
+.Main h3 a {
+  display: inline;
 }
 
 .RightSide {
@@ -24,19 +39,36 @@
 .Quote {
   font-size: 15px;
 }
+.Quote blockquote p {
+  line-height: 1.2;
+}
+.Quote a {
+  padding-left: 75%;
+}
+
 a {
   text-decoration: none;
-  color: "#B83F45" !important;
+  color: #b83f45 ;
 }
 
 a:hover {
   text-decoration: underline;
-  color: #787e7e !important;
+  color: #787e7e ;
 }
 
+.Information h3{
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.Information ul{
+  margin-left: -20px;
+}
 .Info_link {
   list-style-type: disc;
   line-height: 10px;
+  font-size: 14px;
+
 }
 
 .RightSide hr {
@@ -83,4 +115,10 @@ blockquote:after {
   position: absolute;
   bottom: -50px;
   right: 10px;
+}
+
+.footer {
+  font-style: italic;
+  font-size: 14px;
+  line-height: 20px;
 }
