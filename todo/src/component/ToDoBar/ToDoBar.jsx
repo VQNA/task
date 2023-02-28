@@ -1,6 +1,6 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import "./ToDoBar.css";
+import React from 'react';
+import { useState, useEffect } from 'react';
+import './ToDoBar.css';
 
 const ToDoBar = () => {
   const [newItem, setNewItem] = useState("");
@@ -48,7 +48,7 @@ const ToDoBar = () => {
   function changeState(id) {
     let ChangeTask = items.map((task) => {
       if (task.id === id) {
-        return { ...task, status: !task.status };
+        return {...task, status: !task.status};
       }
       return task;
     });
@@ -57,7 +57,7 @@ const ToDoBar = () => {
 
   function changeAll() {
     let ChangeTask = items.map((task) => {
-      return { ...task, status: toggle };
+      return {...task, status: toggle};
     });
     setToggle(!toggle);
     setItems(ChangeTask);
@@ -133,7 +133,7 @@ const ToDoBar = () => {
   }, []);
 
   return (
-    <div className="main_todo" style={{ textAlign: "center" }}>
+    <div className="main_todo" style={{textAlign: "center"}}>
       <h1 className="title">todos</h1>
       <div className="main_functions">
         <div className="search-bar">
@@ -169,7 +169,7 @@ const ToDoBar = () => {
                 <li
                   key={item.id}
                   className="items"
-                  style={{ display: "flex", justifyContent: "space-between" }}
+                  style={{display: "flex", justifyContent: "space-between"}}
                 >
                   <>
                     {item.id !== Editing ? (
@@ -206,7 +206,7 @@ const ToDoBar = () => {
                         onKeyDown={handleKeyDownEdit}
                         className="edit_input"
                         // ref={inputRef}
-                        style={{ fontSize: "22px" }}
+                        style={{fontSize: "22px"}}
                       />
                     ) : (
                       <div
@@ -244,7 +244,7 @@ const ToDoBar = () => {
 
         {items.length ? (
           <div
-            style={{ textAlign: "left", color: "#777" }}
+            style={{textAlign: "left", color: "#777"}}
             className="refine_options"
           >
             {active_task.length > 1 ? (
@@ -252,7 +252,7 @@ const ToDoBar = () => {
             ) : (
               <span className="task_left">{active_task.length} item left</span>
             )}
-            <div style={{ position: "absolute", marginLeft: "169px" }}>
+            <div style={{position: "absolute", marginLeft: "169px"}}>
               <li
                 onClick={showAll}
                 className={
@@ -281,7 +281,7 @@ const ToDoBar = () => {
             {inactive_task.length ? (
               <label
                 onClick={clearComplete}
-                style={{ float: "right", marginRight: "15px" }}
+                style={{float: "right", marginRight: "15px"}}
                 className="clear_complete"
               >
                 Clear completed
@@ -297,10 +297,10 @@ const ToDoBar = () => {
 
       <footer className="info">
         <ul>
-          <li style={{ fontSize: "10px", fontWeight: "300" }}>
+          <li style={{fontSize: "10px", fontWeight: "300"}}>
             Double-click to edit a todo
           </li>
-          <li style={{ fontSize: "10px", fontWeight: "300" }}>
+          <li style={{fontSize: "10px", fontWeight: "300"}}>
             Created by{" "}
             <a
               href="https://github.com/petehunt/"
@@ -310,7 +310,7 @@ const ToDoBar = () => {
               petehunt
             </a>
           </li>
-          <li style={{ fontSize: "10px", fontWeight: "300" }}>
+          <li style={{fontSize: "10px", fontWeight: "300"}}>
             Part of{" "}
             <a
               href="https://todomvc.com/"
