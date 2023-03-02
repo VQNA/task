@@ -1,0 +1,42 @@
+.Main{
+    border: 1px solid lightgray;
+    width: 600px;
+    margin-left: 30%;
+    padding: 20px;
+}
+
+.Main h2{
+    margin-left: 41%;
+}
+
+.HeroesList{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+
+}
+
+.HeroesList div{
+    display: inline-block;
+
+}
+.HeroName{
+    background-color: rgb(228, 225, 225);
+    box-sizing:border-box;
+    border: 1px solid black;
+    padding: 10px 10px 10px 10px;
+    width:500px
+}
+.HeroName:hover{
+    background-color: gray;
+}
+
+.HeroRanking{
+    padding: 10px 10px 10px 10px;
+    margin: 10px 0px 10px 30px;
+    box-sizing:border-box;
+    background-color: rgb(62, 114, 114);
+    border: 1px solid black;
+    text-align: left;
+    color:white;
+}

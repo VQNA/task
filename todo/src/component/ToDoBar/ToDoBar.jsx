@@ -111,7 +111,7 @@ const ToDoBar = () => {
 
   useEffect(() => {
     const LSitems = JSON.parse(localStorage.getItem("items"));
-    if (LSitems.length > 0) {
+    if (LSitems) {
       setItems(LSitems);
     }
   }, []);

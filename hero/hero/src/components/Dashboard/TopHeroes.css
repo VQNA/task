@@ -1,0 +1,36 @@
+.TopHeroes ul{
+    list-style-type: none;
+    display: inline-block;
+    margin:0;
+    padding:0;
+    text-align: center;
+}
+
+.TopHeroes li{
+    list-style-type: none;
+    display: inline-block;
+    margin:20px 40px 20px 40px;    
+    background-color: darkslategray;
+
+}
+
+.TopHeroes li:hover{
+    list-style-type: none;
+    background-color: rgb(85, 142, 142)
+
+}
+
+.TopHeroes div{
+    box-sizing:border-box;
+    width: 180px;
+    text-align: center;
+    color: white;
+    padding:10px;
+}
+
+.Main_board{
+    border: 1px solid gray;
+    width: 1200px;
+    margin-left: 12%;
+    padding: 20px;
+}
