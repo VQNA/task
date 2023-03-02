@@ -23,7 +23,7 @@
 .HeroName{
     background-color: rgb(228, 225, 225);
     box-sizing:border-box;
-    border: 1px solid black;
+    border: none;
     padding: 10px 10px 10px 10px;
     width:500px
 }
@@ -36,7 +36,8 @@
     margin: 10px 0px 10px 30px;
     box-sizing:border-box;
     background-color: rgb(62, 114, 114);
-    border: 1px solid black;
+    border: none;
     text-align: left;
     color:white;
+    width: 40px;
 }

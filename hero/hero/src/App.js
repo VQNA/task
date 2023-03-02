@@ -79,6 +79,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <div className="Header">
         <h1 className="title">Tour of Heroes</h1>
 
         <ul className='navigation_bar'>
@@ -93,7 +94,7 @@ function App() {
             <NavLink to="/NewHeroes">New Hero</NavLink>
           </li>
         </ul>
-
+        </div>
         <Routes>
           <Route path="/"/>
           <Route path="/TopHeroes" element={<TopHeroes />} />
