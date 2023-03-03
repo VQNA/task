@@ -8,20 +8,12 @@ const NewHeroes = () => {
   const [Name, setName] = useState();
   const [Atk, setAtk] = useState();
   const [Def, setDef] = useState();
-  const [Error, setError] = useState(false);
-  const [ErrorMsg, setErrorMsg] = useState(false);
+  const [Local, setLocal] = useState(true);
+
   const navigate = useNavigate();
   function HandleSubmit(e) {
     e.preventDefault();
-    if (
-      Name == undefined ||
-      Avatar == undefined ||
-      Atk == undefined ||
-      Def == undefined
-    ) {
-      setError(true);
-    } else {
-      setError(false);
+    
 
       setHero((oldList) => [
         ...oldList,
@@ -35,27 +27,30 @@ const NewHeroes = () => {
       ]);
       console.log(Hero);
       SetNewHero(true);
-    }
+    
     // setHero((original) => [...original, NewHero]);
     // localStorage.setItem("Heroes", JSON.stringify(Hero))
   }
 
-  function errorMsg() {
-    var hasNumber = /\d/;
-    if (hasNumber.test(Atk) === false || hasNumber.test(Def) === false) {
-      setError(true);
-      setErrorMsg("please enter numbers only");
-    }
-  }
+  // function errorMsg() {
+  //   var hasNumber = /\d/;
+  //   if (hasNumber.test(Atk) === false || hasNumber.test(Def) === false) {
+  //     setError(true);
+  //     setErrorMsg("please enter numbers only");
+  //   }
+  // }
 
   useEffect(() => {
     const LS_items = JSON.parse(localStorage.getItem("Heroes"));
     setHero(LS_items);
-    console.log(Hero);
   }, []);
 
+  function ChangeSource(e){
+    e.preventDefault()
+    setLocal(!Local)
+  }
+
   useEffect(() => {
-    console.log(Hero);
     if (NewHero) {
       localStorage.setItem("Heroes", JSON.stringify(Hero));
       SetNewHero(!Hero);
@@ -95,20 +90,38 @@ const NewHeroes = () => {
               }}
             />
           </div>
-          <div className="input_field">
-            <h4>Avatar link:</h4>
-            <input
-              type="text"
-              onChange={(e) => {
-                SetAvatar(e.target.value);
-              }}
-            />
-            <button onClick={HandleSubmit}>Submit</button>
-          </div>
+
+          {/* Avatar field */}
+          <button onClick={ChangeSource} className="Btn">Switch source</button>
+          {Local ? (
+            <div className="input_field">
+              <h4>Avatar link:</h4>
+              <input
+                type="text"
+                onChange={(e) => {
+                  SetAvatar(e.target.value);
+                }}
+              />
+            </div>
+          ) : (
+            <div className="input_field">
+              <h4>Upload File:</h4>
+              <input
+                type="file"
+                onChange={(e) => {
+                  SetAvatar(URL.createObjectURL(e.target.files[0]));
+                }}
+              />
+            </div>
+          )}
+
+          
+
+          <button className="Btn" onClick={HandleSubmit}>Submit</button>
         </div>
         <div className="PreviewImage">
           {Avatar ? <h4>Preview Image:</h4> : ""}
-          {Avatar ? <img src={Avatar} alt="Preview" /> : ""}
+          {Avatar ? <img src={Avatar} alt="Image Not Found" /> : ""}
         </div>
       </form>
     </div>

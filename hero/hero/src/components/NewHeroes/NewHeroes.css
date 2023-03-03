@@ -5,6 +5,12 @@
     padding: 20px;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .NewForm{
     margin-left: 15px;
     margin-right: 15px;
@@ -17,6 +23,8 @@
     width: 200px;
     display: block;
 }
+
+
 .NewForm h4{
     font-weight: normal;
 }
@@ -40,4 +48,10 @@ img{
     max-height: 270px;
     max-width: 400px;
     margin-top: 5px;
+}
+.Btn{
+    margin-left: 20px ;
+    height: 20px;
+    text-align: center;
+    padding-bottom: 25px;
 }

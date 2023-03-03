@@ -16,7 +16,6 @@ const TopHeroes = () => {
   
   }
   useEffect(() => {
-    console.log(Target)
     if(Target !== undefined){
     localStorage.setItem("TargetHeroes", JSON.stringify(Target));
     navigate('/Details')}
