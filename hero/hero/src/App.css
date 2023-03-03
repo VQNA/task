@@ -1,12 +1,10 @@
 .navigation_bar li {
   display: inline-block;
   margin: 30px 50px 30px 50px;
-  padding: 20px;
   box-sizing: border-box;
   background-color: lightgray;
-
 }
-
+/*
 .navigation_bar li:hover {
   display: inline-block;
   margin: 30px 50px 30px 50px;
@@ -20,18 +18,22 @@
 
   background-color: rgb(139, 137, 137);
 
-}
+} */
+
+
 
 .navigation_bar {
   list-style-type: none;
   text-align: center;
-  margin: 0;
-  padding: 0;
+  margin-left: 38%;
+  padding-bottom: 20px;
   text-decoration: none;
+  
 }
 .navigation_bar a{
   color: black;
   text-decoration: none;
+  margin:10px
 
 }
 

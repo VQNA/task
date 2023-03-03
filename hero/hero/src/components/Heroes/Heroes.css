@@ -1,14 +1,18 @@
 .Main{
     border: 1px solid lightgray;
-    width: 600px;
-    margin-left: 30%;
+    width: 650px;
+    margin-left: 23%;
     padding: 20px;
 }
 
 .Main h2{
     margin-left: 41%;
 }
-
+.SearchInput{
+    width: 300px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
 .HeroesList{
     margin:0;
     padding:0;
@@ -25,7 +29,8 @@
     box-sizing:border-box;
     border: none;
     padding: 10px 10px 10px 10px;
-    width:500px
+    width:500px;
+    margin: none
 }
 .HeroName:hover{
     background-color: gray;
@@ -34,7 +39,8 @@
 .HeroRanking{
     padding: 10px 10px 10px 10px;
     margin: 10px 0px 10px 30px;
-    box-sizing:border-box;
+    box-sizing:border-box;    
+
     background-color: rgb(62, 114, 114);
     border: none;
     text-align: left;

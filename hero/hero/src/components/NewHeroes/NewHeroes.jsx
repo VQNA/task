@@ -1,6 +1,9 @@
 import { React, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./NewHeroes.css";
+import { Button, Input, Image, InputNumber, Form } from 'antd';
+import 'antd/dist/reset.css';
+
 const NewHeroes = () => {
   const [Hero, setHero] = useState([]);
   const [NewHero, SetNewHero] = useState(false);
@@ -61,11 +64,11 @@ const NewHeroes = () => {
   return (
     <div className="NewHeroForm">
       <h1>New Hero Details</h1>
-      <form className="NewForm">
+      <Form className="NewForm">
         <div className="information">
           <div className="input_field">
             <h4>Hero name:</h4>
-            <input
+            <Input
               type="text"
               onChange={(e) => {
                 setName(e.target.value);
@@ -74,8 +77,7 @@ const NewHeroes = () => {
           </div>
           <div className="input_field">
             <h4>Attack:</h4>
-            <input
-              type="number"
+            <InputNumber
               onChange={(e) => {
                 setAtk(e.target.value);
               }}
@@ -83,8 +85,8 @@ const NewHeroes = () => {
           </div>
           <div className="input_field">
             <h4>Defense:</h4>
-            <input
-              type="number"
+            <InputNumber
+            controls = "false"
               onChange={(e) => {
                 setDef(e.target.value);
               }}
@@ -92,11 +94,11 @@ const NewHeroes = () => {
           </div>
 
           {/* Avatar field */}
-          <button onClick={ChangeSource} className="Btn">Switch source</button>
+          <Button type = "primary" shape="round" size="normal" onClick={ChangeSource} className="Btn">Switch source</Button>
           {Local ? (
             <div className="input_field">
               <h4>Avatar link:</h4>
-              <input
+              <Input
                 type="text"
                 onChange={(e) => {
                   SetAvatar(e.target.value);
@@ -104,7 +106,7 @@ const NewHeroes = () => {
               />
             </div>
           ) : (
-            <div className="input_field">
+            <div className="input_field" >
               <h4>Upload File:</h4>
               <input
                 type="file"
@@ -117,13 +119,13 @@ const NewHeroes = () => {
 
           
 
-          <button className="Btn" onClick={HandleSubmit}>Submit</button>
+          <Button type = "primary" shape="round" className="Btn" onClick={HandleSubmit}>Submit</Button>
         </div>
         <div className="PreviewImage">
           {Avatar ? <h4>Preview Image:</h4> : ""}
-          {Avatar ? <img src={Avatar} alt="Image Not Found" /> : ""}
+          {Avatar ? <Image src={Avatar} alt="Image Not Found" className="SampleImage" /> : ""}
         </div>
-      </form>
+      </Form>
     </div>
   );
 };

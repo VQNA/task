@@ -1,7 +1,8 @@
 import { React, useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import './Heroes.css'
-
+import {  Input, List   } from 'antd';
+import 'antd/dist/reset.css';
 const Heroes = () => {
   const [HeroesList, setHeroesList] = useState([]);
   const [Target, setTarget] = useState()
@@ -12,6 +13,8 @@ const Heroes = () => {
       return Object.values(hero).join('').includes(Search)
     }
   );
+
+  
   useEffect(() => {
     const LocalStorageItems = JSON.parse(localStorage.getItem("Heroes"));
     setHeroesList(LocalStorageItems)
@@ -33,17 +36,17 @@ const Heroes = () => {
   return (
     <div className="Main">
       <h2>My Heroes</h2>
-      <input placeholder="Search for hero:" onChange={(e)=>setSearch(e.target.value)}></input>
-      <ul  className="HeroesList">
+      <Input placeholder="Search for hero:" onChange={(e)=>setSearch(e.target.value) } className="SearchInput" ></Input>
+      <List  className="HeroesList">
         {renderedHeroList.map((heroes) => {
           return (
-            <li key={heroes.id} onClick = {() => HandleClick(heroes.id)}> 
+            <List.Item key={heroes.id} onClick = {() => HandleClick(heroes.id)}> 
               <div className="HeroRanking">{HeroesList.map(object => object.id).indexOf(heroes.id) + 1}</div>
               <div className="HeroName">{heroes.name}</div>
-            </li>
+            </List.Item>
           );
         })}
-      </ul>
+      </List>
     </div>
   );
 };
