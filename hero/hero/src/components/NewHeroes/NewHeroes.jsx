@@ -50,6 +50,7 @@ const NewHeroes = () => {
 
   function ChangeSource(e){
     e.preventDefault()
+    SetAvatar()
     setLocal(!Local)
   }
 
